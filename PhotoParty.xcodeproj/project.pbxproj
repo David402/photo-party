@@ -380,7 +380,7 @@
 				ORGANIZATIONNAME = "David Lliu";
 				TargetAttributes = {
 					D7B3C9831824F3A900EB253A = {
-						DevelopmentTeam = F6J8B455GU;
+						DevelopmentTeam = P422PPRH8F;
 					};
 					D7B3C9A41824F3A900EB253A = {
 						TestTargetID = D7B3C9831824F3A900EB253A;
