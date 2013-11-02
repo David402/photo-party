@@ -14,13 +14,16 @@
 		D7B3C9941824F3A900EB253A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B3C9931824F3A900EB253A /* main.m */; };
 		D7B3C9981824F3A900EB253A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B3C9971824F3A900EB253A /* AppDelegate.m */; };
 		D7B3C99B1824F3A900EB253A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7B3C9991824F3A900EB253A /* Main.storyboard */; };
-		D7B3C99E1824F3A900EB253A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B3C99D1824F3A900EB253A /* ViewController.m */; };
+		D7B3C99E1824F3A900EB253A /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B3C99D1824F3A900EB253A /* MainViewController.m */; };
 		D7B3C9A01824F3A900EB253A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7B3C99F1824F3A900EB253A /* Images.xcassets */; };
 		D7B3C9A71824F3A900EB253A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B3C9A61824F3A900EB253A /* XCTest.framework */; };
 		D7B3C9A81824F3A900EB253A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B3C9871824F3A900EB253A /* Foundation.framework */; };
 		D7B3C9A91824F3A900EB253A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B3C98B1824F3A900EB253A /* UIKit.framework */; };
 		D7B3C9B11824F3A900EB253A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7B3C9AF1824F3A900EB253A /* InfoPlist.strings */; };
 		D7B3C9B31824F3A900EB253A /* PhotoPartyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B3C9B21824F3A900EB253A /* PhotoPartyTests.m */; };
+		D7B3C9BE1824FDEB00EB253A /* MissionCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B3C9BD1824FDEB00EB253A /* MissionCreateViewController.m */; };
+		D7B3C9C11824FF5600EB253A /* MissionJoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B3C9C01824FF5600EB253A /* MissionJoinViewController.m */; };
+		D7B3C9C41825077C00EB253A /* CollageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B3C9C31825077C00EB253A /* CollageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +48,20 @@
 		D7B3C9961824F3A900EB253A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D7B3C9971824F3A900EB253A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D7B3C99A1824F3A900EB253A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D7B3C99C1824F3A900EB253A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D7B3C99D1824F3A900EB253A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D7B3C99C1824F3A900EB253A /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		D7B3C99D1824F3A900EB253A /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		D7B3C99F1824F3A900EB253A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D7B3C9A51824F3A900EB253A /* PhotoPartyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoPartyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B3C9A61824F3A900EB253A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D7B3C9AE1824F3A900EB253A /* PhotoPartyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoPartyTests-Info.plist"; sourceTree = "<group>"; };
 		D7B3C9B01824F3A900EB253A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7B3C9B21824F3A900EB253A /* PhotoPartyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoPartyTests.m; sourceTree = "<group>"; };
+		D7B3C9BC1824FDEA00EB253A /* MissionCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MissionCreateViewController.h; sourceTree = "<group>"; };
+		D7B3C9BD1824FDEB00EB253A /* MissionCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MissionCreateViewController.m; sourceTree = "<group>"; };
+		D7B3C9BF1824FF5600EB253A /* MissionJoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MissionJoinViewController.h; sourceTree = "<group>"; };
+		D7B3C9C01824FF5600EB253A /* MissionJoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MissionJoinViewController.m; sourceTree = "<group>"; };
+		D7B3C9C21825077C00EB253A /* CollageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollageViewController.h; sourceTree = "<group>"; };
+		D7B3C9C31825077C00EB253A /* CollageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +121,10 @@
 		D7B3C98D1824F3A900EB253A /* PhotoParty */ = {
 			isa = PBXGroup;
 			children = (
+				D7B3C9C51825078100EB253A /* Controllers */,
 				D7B3C9961824F3A900EB253A /* AppDelegate.h */,
 				D7B3C9971824F3A900EB253A /* AppDelegate.m */,
 				D7B3C9991824F3A900EB253A /* Main.storyboard */,
-				D7B3C99C1824F3A900EB253A /* ViewController.h */,
-				D7B3C99D1824F3A900EB253A /* ViewController.m */,
 				D7B3C99F1824F3A900EB253A /* Images.xcassets */,
 				D7B3C98E1824F3A900EB253A /* Supporting Files */,
 			);
@@ -150,6 +158,21 @@
 				D7B3C9AF1824F3A900EB253A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D7B3C9C51825078100EB253A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7B3C99C1824F3A900EB253A /* MainViewController.h */,
+				D7B3C99D1824F3A900EB253A /* MainViewController.m */,
+				D7B3C9BF1824FF5600EB253A /* MissionJoinViewController.h */,
+				D7B3C9C01824FF5600EB253A /* MissionJoinViewController.m */,
+				D7B3C9BC1824FDEA00EB253A /* MissionCreateViewController.h */,
+				D7B3C9BD1824FDEB00EB253A /* MissionCreateViewController.m */,
+				D7B3C9C21825077C00EB253A /* CollageViewController.h */,
+				D7B3C9C31825077C00EB253A /* CollageViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,7 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7B3C99E1824F3A900EB253A /* ViewController.m in Sources */,
+				D7B3C9C41825077C00EB253A /* CollageViewController.m in Sources */,
+				D7B3C99E1824F3A900EB253A /* MainViewController.m in Sources */,
+				D7B3C9BE1824FDEB00EB253A /* MissionCreateViewController.m in Sources */,
+				D7B3C9C11824FF5600EB253A /* MissionJoinViewController.m in Sources */,
 				D7B3C9981824F3A900EB253A /* AppDelegate.m in Sources */,
 				D7B3C9941824F3A900EB253A /* main.m in Sources */,
 			);
@@ -460,6 +486,7 @@
 				D7B3C9B81824F3A900EB253A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D7B3C9B91824F3A900EB253A /* Build configuration list for PBXNativeTarget "PhotoPartyTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +495,7 @@
 				D7B3C9BB1824F3A900EB253A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
