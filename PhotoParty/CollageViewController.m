@@ -98,6 +98,8 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     __weak UIView *thisView = self.view;
     [imageView setImageWithURL:[NSURL URLWithString:urlString]
                completionBlock:^(UIImage *image, NSError *error) {
+                   if (!image)
+                       return;
                    
                    // Adjsut all image view layout here
                    
@@ -140,17 +142,19 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 - (void)eventSource:(TRVSEventSource *)eventSource didReceiveEvent:(TRVSServerSentEvent *)event
 {
     // NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:event.data options:0 error:NULL];
-    const char* bytes = [event.data bytes];
-    if (!bytes) {
+    if (!event.data) {
         return;
     }
-    NSString *urlString = [NSString stringWithUTF8String:bytes];
+    NSString *urlString = [[NSString alloc] initWithData:event.data encoding:NSUTF8StringEncoding];
     NSLog(@"received: %@", urlString);
     
     if (![urlString hasPrefix:@"http"])
         return;
 
-    [self addImageWithUrl:urlString];
+    // Update image in UI thread
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self addImageWithUrl:urlString];
+    });
 }
 
 - (void)eventSource:(TRVSEventSource *)eventSource didFailWithError:(NSError *)error

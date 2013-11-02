@@ -37,6 +37,8 @@
 		D7CD451618252083009B2F19 /* CBWebImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CD450818252083009B2F19 /* CBWebImageUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D7CD451718252083009B2F19 /* UIImageView+CBWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CD450A18252083009B2F19 /* UIImageView+CBWebImage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D7CD451818252083009B2F19 /* UIImageView+CBWebImageAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CD450C18252083009B2F19 /* UIImageView+CBWebImageAnimation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D7CD451B18253948009B2F19 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CD451A18253948009B2F19 /* Utils.m */; };
+		D7CD451D18253B87009B2F19 /* credentials.txt in Resources */ = {isa = PBXBuildFile; fileRef = D7CD451C18253B87009B2F19 /* credentials.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,9 @@
 		D7CD450A18252083009B2F19 /* UIImageView+CBWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CBWebImage.m"; sourceTree = "<group>"; };
 		D7CD450B18252083009B2F19 /* UIImageView+CBWebImageAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CBWebImageAnimation.h"; sourceTree = "<group>"; };
 		D7CD450C18252083009B2F19 /* UIImageView+CBWebImageAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CBWebImageAnimation.m"; sourceTree = "<group>"; };
+		D7CD451918253948009B2F19 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		D7CD451A18253948009B2F19 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		D7CD451C18253B87009B2F19 /* credentials.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = credentials.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +170,7 @@
 		D7B3C98D1824F3A900EB253A /* PhotoParty */ = {
 			isa = PBXGroup;
 			children = (
+				D7CD451C18253B87009B2F19 /* credentials.txt */,
 				D7CD44EF18252083009B2F19 /* CBWebImage */,
 				D7CD44E818251E4F009B2F19 /* TRVSEventSource.h */,
 				D7CD44E918251E4F009B2F19 /* TRVSEventSource.m */,
@@ -177,6 +183,8 @@
 				D7B3C9991824F3A900EB253A /* Main.storyboard */,
 				D7B3C99F1824F3A900EB253A /* Images.xcassets */,
 				D7B3C98E1824F3A900EB253A /* Supporting Files */,
+				D7CD451918253948009B2F19 /* Utils.h */,
+				D7CD451A18253948009B2F19 /* Utils.m */,
 			);
 			path = PhotoParty;
 			sourceTree = "<group>";
@@ -345,6 +353,7 @@
 				D7B3C9A01824F3A900EB253A /* Images.xcassets in Resources */,
 				D7B3C9921824F3A900EB253A /* InfoPlist.strings in Resources */,
 				D7B3C99B1824F3A900EB253A /* Main.storyboard in Resources */,
+				D7CD451D18253B87009B2F19 /* credentials.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +375,7 @@
 				D7CD450D18252083009B2F19 /* UIImage+GIF.m in Sources */,
 				D7CD451318252083009B2F19 /* CBWebImageDownloader.m in Sources */,
 				D7CD451718252083009B2F19 /* UIImageView+CBWebImage.m in Sources */,
+				D7CD451B18253948009B2F19 /* Utils.m in Sources */,
 				D7B3C9C41825077C00EB253A /* CollageViewController.m in Sources */,
 				D7B3C99E1824F3A900EB253A /* MainViewController.m in Sources */,
 				D7CD450E18252083009B2F19 /* UIScreen+CBWebImageAdditions.m in Sources */,

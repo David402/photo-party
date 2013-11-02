@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString* const kSourceUrl;
+extern NSString* const kTransmitterURL;
+
 @interface CollageViewController : UIViewController
 
 @property (nonatomic, retain) NSMutableArray *images;
