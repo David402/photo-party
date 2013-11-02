@@ -39,11 +39,6 @@
 		D7CD451818252083009B2F19 /* UIImageView+CBWebImageAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CD450C18252083009B2F19 /* UIImageView+CBWebImageAnimation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D7CD451B18253948009B2F19 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CD451A18253948009B2F19 /* Utils.m */; };
 		D7CD451D18253B87009B2F19 /* credentials.txt in Resources */ = {isa = PBXBuildFile; fileRef = D7CD451C18253B87009B2F19 /* credentials.txt */; };
-		D7CD452818255D2E009B2F19 /* Grids2.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CD452118255D2E009B2F19 /* Grids2.plist */; };
-		D7CD452918255D2E009B2F19 /* Grids3.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CD452218255D2E009B2F19 /* Grids3.plist */; };
-		D7CD452A18255D2E009B2F19 /* Grids4.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CD452318255D2E009B2F19 /* Grids4.plist */; };
-		D7CD452B18255D2E009B2F19 /* Grids5.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CD452418255D2E009B2F19 /* Grids5.plist */; };
-		D7CD452C18255D2E009B2F19 /* Grids6.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CD452518255D2E009B2F19 /* Grids6.plist */; };
 		D7CD453418257CA1009B2F19 /* bnt_new.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CD453018257CA1009B2F19 /* bnt_new.png */; };
 		D7CD453518257CA1009B2F19 /* bnt_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CD453118257CA1009B2F19 /* bnt_new@2x.png */; };
 		D7CD453618257CA1009B2F19 /* btn_join.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CD453218257CA1009B2F19 /* btn_join.png */; };
@@ -130,11 +125,6 @@
 		D7CD451918253948009B2F19 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		D7CD451A18253948009B2F19 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		D7CD451C18253B87009B2F19 /* credentials.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = credentials.txt; sourceTree = "<group>"; };
-		D7CD452118255D2E009B2F19 /* Grids2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Grids2.plist; sourceTree = "<group>"; };
-		D7CD452218255D2E009B2F19 /* Grids3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Grids3.plist; sourceTree = "<group>"; };
-		D7CD452318255D2E009B2F19 /* Grids4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Grids4.plist; sourceTree = "<group>"; };
-		D7CD452418255D2E009B2F19 /* Grids5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Grids5.plist; sourceTree = "<group>"; };
-		D7CD452518255D2E009B2F19 /* Grids6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Grids6.plist; sourceTree = "<group>"; };
 		D7CD453018257CA1009B2F19 /* bnt_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bnt_new.png; sourceTree = "<group>"; };
 		D7CD453118257CA1009B2F19 /* bnt_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bnt_new@2x.png"; sourceTree = "<group>"; };
 		D7CD453218257CA1009B2F19 /* btn_join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_join.png; sourceTree = "<group>"; };
@@ -209,11 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				D7CD452F18257C93009B2F19 /* Resources */,
-				D7CD452118255D2E009B2F19 /* Grids2.plist */,
-				D7CD452218255D2E009B2F19 /* Grids3.plist */,
-				D7CD452318255D2E009B2F19 /* Grids4.plist */,
-				D7CD452418255D2E009B2F19 /* Grids5.plist */,
-				D7CD452518255D2E009B2F19 /* Grids6.plist */,
 				D7CD451C18253B87009B2F19 /* credentials.txt */,
 				D7CD44EF18252083009B2F19 /* CBWebImage */,
 				D7CD451E182551B0009B2F19 /* TRVEvent */,
@@ -394,6 +379,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "David Lliu";
 				TargetAttributes = {
+					D7B3C9831824F3A900EB253A = {
+						DevelopmentTeam = F6J8B455GU;
+					};
 					D7B3C9A41824F3A900EB253A = {
 						TestTargetID = D7B3C9831824F3A900EB253A;
 					};
@@ -425,14 +413,10 @@
 			files = (
 				D7CD453F18257E50009B2F19 /* im_logo_nav@2x.png in Resources */,
 				D7CD4546182580A5009B2F19 /* bg_input.png in Resources */,
-				D7CD452918255D2E009B2F19 /* Grids3.plist in Resources */,
 				D7B3C9A01824F3A900EB253A /* Images.xcassets in Resources */,
-				D7CD452818255D2E009B2F19 /* Grids2.plist in Resources */,
 				D7CD4549182580A5009B2F19 /* im_title_code@2x.png in Resources */,
 				D7CD4548182580A5009B2F19 /* im_title_code.png in Resources */,
-				D7CD452C18255D2E009B2F19 /* Grids6.plist in Resources */,
 				D7B3C9921824F3A900EB253A /* InfoPlist.strings in Resources */,
-				D7CD452B18255D2E009B2F19 /* Grids5.plist in Resources */,
 				D7CD454B182580A5009B2F19 /* im_title_member@2x.png in Resources */,
 				D7CD453718257CA1009B2F19 /* btn_join@2x.png in Resources */,
 				D7CD453618257CA1009B2F19 /* btn_join.png in Resources */,
@@ -444,7 +428,6 @@
 				D7CD453E18257E50009B2F19 /* im_logo_nav.png in Resources */,
 				D7CD451D18253B87009B2F19 /* credentials.txt in Resources */,
 				D7CD4547182580A5009B2F19 /* bg_input@2x.png in Resources */,
-				D7CD452A18255D2E009B2F19 /* Grids4.plist in Resources */,
 				D7CD453D18257E50009B2F19 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,10 +593,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoParty/PhotoParty-Prefix.pch";
 				INFOPLIST_FILE = "PhotoParty/PhotoParty-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -623,10 +609,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoParty/PhotoParty-Prefix.pch";
 				INFOPLIST_FILE = "PhotoParty/PhotoParty-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
