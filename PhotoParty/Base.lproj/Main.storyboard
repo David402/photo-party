@@ -16,30 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilw-AN-1ko">
-                                <rect key="frame" x="42" y="369" width="237" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilw-AN-1ko">
+                                <rect key="frame" x="0.0" y="408" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Create Mission">
+                                <state key="normal" image="bnt_new.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="eLG-H4-qVg" kind="push" id="gvr-LQ-QBA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V15-sc-n9W">
-                                <rect key="frame" x="42" y="439" width="237" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V15-sc-n9W">
+                                <rect key="frame" x="0.0" y="488" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Join Mission">
+                                <state key="normal" image="btn_join.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="G4z-ab-XBd" kind="push" id="rrl-sF-DZf"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="wVA-vu-zYT">
+                                <rect key="frame" x="100" y="164" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xt3-rA-i4h"/>
                 </viewController>
@@ -59,57 +63,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYW-ZP-CLP">
-                                <rect key="frame" x="88" y="78" width="144" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="bg_input.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ze0-g4-hz7">
+                                <rect key="frame" x="0.0" y="135" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEv-BL-H2Q">
-                                <rect key="frame" x="88" y="168" width="144" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ze0-g4-hz7">
-                                <rect key="frame" x="88" y="107" width="144" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="actionCodeChanged:" destination="eLG-H4-qVg" eventType="editingChanged" id="Dnh-FG-bbl"/>
                                     <action selector="actionCodeTextDidChange:" destination="eLG-H4-qVg" eventType="editingDidEnd" id="k5Z-5V-he6"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EiJ-st-25v">
-                                <rect key="frame" x="88" y="197" width="144" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="bg_input.png" translatesAutoresizingMaskIntoConstraints="NO" id="EiJ-st-25v">
+                                <rect key="frame" x="0.0" y="255" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="actionNumberChanged:" destination="eLG-H4-qVg" eventType="editingChanged" id="hyA-72-IAu"/>
                                     <action selector="actionNumberTextDidChange:" destination="eLG-H4-qVg" eventType="editingDidEnd" id="VeH-rP-BrY"/>
                                 </connections>
                             </textField>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uqp-Wy-Yl0">
-                                <rect key="frame" x="88" y="248" width="144" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="im_title_code.png" translatesAutoresizingMaskIntoConstraints="NO" id="crQ-95-zbY">
+                                <rect key="frame" x="0.0" y="85" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Start Mission">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createButtonPressed:" destination="eLG-H4-qVg" eventType="touchUpInside" id="3zL-6o-oot"/>
-                                </connections>
-                            </button>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="im_title_member.png" translatesAutoresizingMaskIntoConstraints="NO" id="HIs-S5-bl4">
+                                <rect key="frame" x="0.0" y="205" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cIk-0T-yCL"/>
+                    <navigationItem key="navigationItem" id="cIk-0T-yCL">
+                        <barButtonItem key="rightBarButtonItem" title="Action" id="AbH-AJ-XrE">
+                            <color key="tintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                            <connections>
+                                <action selector="createButtonPressed:" destination="eLG-H4-qVg" id="x2w-OH-5uq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="actionButton" destination="Uqp-Wy-Yl0" id="avY-Ef-g4J"/>
+                        <outlet property="actionButton" destination="AbH-AJ-XrE" id="FQD-W7-cEo"/>
                         <outlet property="actionCodeTextField" destination="Ze0-g4-hz7" id="rhk-v1-IBd"/>
                         <outlet property="actionNumberTextField" destination="EiJ-st-25v" id="bO9-kK-KWA"/>
                         <segue destination="JXt-vM-gun" kind="push" identifier="CameraToCollageSegue" id="5f1-8W-SG6"/>
@@ -130,7 +124,7 @@
                     <view key="view" contentMode="scaleToFill" id="GBt-3S-tBH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pih-mO-qt0"/>
                 </viewController>
@@ -150,17 +144,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7im-wG-tYX">
-                                <rect key="frame" x="88" y="77" width="144" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="bg_input.png" translatesAutoresizingMaskIntoConstraints="NO" id="6aw-Zm-FfF">
+                                <rect key="frame" x="0.0" y="135" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6aw-Zm-FfF">
-                                <rect key="frame" x="88" y="106" width="144" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="actionCodeChanged:" destination="G4z-ab-XBd" eventType="editingChanged" id="pen-d4-lmi"/>
@@ -168,23 +155,23 @@
                                     <outlet property="delegate" destination="G4z-ab-XBd" id="Tkv-Fc-6Zx"/>
                                 </connections>
                             </textField>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vx1-Eu-Gz2">
-                                <rect key="frame" x="88" y="152" width="144" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="im_title_code.png" translatesAutoresizingMaskIntoConstraints="NO" id="o7U-cH-9hy">
+                                <rect key="frame" x="0.0" y="85" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Join">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="joinButtionPressed:" destination="G4z-ab-XBd" eventType="touchUpInside" id="TKT-g5-1E5"/>
-                                </connections>
-                            </button>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1VH-zL-lgI"/>
+                    <navigationItem key="navigationItem" id="1VH-zL-lgI">
+                        <barButtonItem key="rightBarButtonItem" title="Join" id="G44-Em-zyZ">
+                            <color key="tintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                            <connections>
+                                <action selector="joinButtionPressed:" destination="G4z-ab-XBd" id="kph-cg-BZl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="actionButton" destination="Vx1-Eu-Gz2" id="Oj6-fu-gMo"/>
+                        <outlet property="actionButton" destination="G44-Em-zyZ" id="Phg-M1-tZS"/>
                         <outlet property="actionCodeTextField" destination="6aw-Zm-FfF" id="oWS-3A-gd7"/>
                         <segue destination="JXt-vM-gun" kind="push" identifier="CameraToCollageSegue" id="ypw-6S-2gG"/>
                     </connections>
@@ -198,9 +185,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="clG-2p-eP9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QAp-I2-mhx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="QAp-I2-mhx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -212,6 +200,14 @@
             <point key="canvasLocation" x="-407" y="77"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg_input.png" width="320" height="50"/>
+        <image name="bnt_new.png" width="320" height="80"/>
+        <image name="btn_join.png" width="320" height="80"/>
+        <image name="icon.png" width="120" height="120"/>
+        <image name="im_title_code.png" width="320" height="50"/>
+        <image name="im_title_member.png" width="320" height="50"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

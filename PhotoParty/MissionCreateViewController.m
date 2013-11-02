@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *actionCodeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *actionNumberTextField;
 @property (nonatomic, retain) UIImage *capturedImage;
-@property (weak, nonatomic) IBOutlet UIButton *actionButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 @end
 
 @implementation MissionCreateViewController
@@ -37,6 +37,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+//    self.navigationItem.rightBarButtonItem = nil;
+    self.actionButton.enabled = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -97,30 +100,46 @@
 - (IBAction)actionCodeTextDidChange:(id)sender
 {
     if ([self validateTextFields]) {
-        self.actionButton.hidden = NO;
+        self.navigationItem.rightBarButtonItem = self.actionButton;
         self.actionButton.enabled = YES;
+    }
+    else {
+//        self.navigationItem.rightBarButtonItem = nil;
+        self.actionButton.enabled = NO;
     }
 }
 - (IBAction)actionCodeChanged:(id)sender
 {
     if ([self validateTextFields]) {
-        self.actionButton.hidden = NO;
+        self.navigationItem.rightBarButtonItem = self.actionButton;
         self.actionButton.enabled = YES;
+    }
+    else {
+//        self.navigationItem.rightBarButtonItem = nil;
+        self.actionButton.enabled = NO;
     }
 }
 
 - (IBAction)actionNumberTextDidChange:(id)sender
 {
     if ([self validateTextFields]) {
-        self.actionButton.hidden = NO;
+        self.navigationItem.rightBarButtonItem = self.actionButton;
         self.actionButton.enabled = YES;
+    }
+    else {
+//        self.navigationItem.rightBarButtonItem = nil;
+        self.actionButton.enabled = NO;
     }
 }
 - (IBAction)actionNumberChanged:(id)sender
 {
     if ([self validateTextFields]) {
-        self.actionButton.hidden = NO;
+        self.navigationItem.rightBarButtonItem = self.actionButton;
         self.actionButton.enabled = YES;
+    }
+    else {
+//        self.navigationItem.rightBarButtonItem = nil;
+        self.actionButton.enabled = NO;
     }
 }
 
