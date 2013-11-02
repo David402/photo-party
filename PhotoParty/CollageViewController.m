@@ -166,11 +166,8 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    // Do animation
-    [UIView animateWithDuration:0.5 animations:^{
-        self.navigationController.navigationBarHidden = !self.navigationController.navigationBarHidden;
-        [[UIApplication sharedApplication] setStatusBarHidden:![[UIApplication sharedApplication] isStatusBarHidden]];
-    }];
+    [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBarHidden animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:![[UIApplication sharedApplication] isStatusBarHidden] withAnimation:UIStatusBarAnimationFade];
 }
 
 # pragma mark - TRVEventSource Delegate
