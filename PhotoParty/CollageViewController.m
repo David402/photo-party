@@ -91,7 +91,6 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
         // Remember our own image
         self.uploadedImageUrl = urlString;
         
-        
         // Send image URL
         NSMutableURLRequest* req = [[NSMutableURLRequest alloc] init];
         [req setURL:[NSURL URLWithString:kTransmitterURL]];
@@ -111,15 +110,15 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     // Add image to collection
     [self.images addObject:image];
     
-    // Arrange image to collage (just fit center)
+    // Add imageView
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    float scale = [self calculateScale:image];
-    imageView.frame = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
-    imageView.center = CGPointMake(self.view.frame.size.width / 2,
-                                   self.view.frame.size.height / 2);
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
+
+    // Insert imageView
     [self.view addSubview:[self updateShadow:imageView]];
-    
     [self.imageViews addObject:imageView];
+    [self updateView];
 }
 
 // Incoming server image
@@ -135,17 +134,17 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
         return;
     
     UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
     __weak UIImageView *_imageView = imageView;
     [imageView setImageWithURL:[NSURL URLWithString:urlString]
                completionBlock:^(UIImage *image, NSError *error) {
                    if (!image)
                        return;
-                   
+
+                   // Insert imageView
                    [self.view addSubview:[self updateShadow:_imageView]];
-                   
                    [self.imageViews addObject:_imageView];
-                   
-                   // Rearrange
                    [self updateView];
                }
      ];
@@ -214,56 +213,26 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 
 - (void)updateView
 {
-    NSDictionary *gridDict = [self gridWithNumSlots:self.imageViews.count];
-    
-    NSMutableArray *slots = [NSMutableArray arrayWithArray:[gridDict valueForKey:@"slots"]];
+    NSMutableArray *slots = [NSMutableArray arrayWithArray:[self generateSlots:self.imageViews.count]];
     for (UIImageView *imageView in self.imageViews) {
+        
         int slotIndex = [self randomNumberInRangeMin:0 max:slots.count-1];
-        CGRect slotRect = [self rectFromSlot:slots[slotIndex]];
+        CGRect slotRect = [slots[slotIndex] CGRectValue];
         [self fillRect:slotRect withImageView:imageView];
+        
         [slots removeObjectAtIndex:slotIndex];
     }
 }
 
 - (void)fillRect:(CGRect)rect withImageView:(UIImageView *)imageView
 {
-    CGFloat sizeFudge = 7;
-//    CGSize slotSize = CGSizeMake(rect.size.width  * self.view.frame.size.width,
-//                                 rect.size.height * self.view.frame.size.height);
-    CGSize slotSize = rect.size;
-    CGFloat scaling = 1;    // Default
-    CGSize imageViewSize = imageView.frame.size;
-    if (MIN(imageViewSize.width, imageViewSize.height) >= 1) {
-        scaling = MAX((rect.size.width  + sizeFudge) / imageViewSize.width,
-                      (rect.size.height + sizeFudge) / imageViewSize.height);
-//        scaling = MIN(scaling, MAX_SCRAP_SCALING);
-    }
-    CGAffineTransform transform = CGAffineTransformScale(imageView.transform, scaling, scaling);
-    
-    // Figure out position (centered)
-//    CGPoint slotOrigin = CGPointMake(rect.origin.x * self.view.frame.size.width,
-//                                     rect.origin.y * self.view.frame.size.height);
-    CGPoint slotOrigin = rect.origin;
-    CGPoint slotCenter = CGPointMake(slotOrigin.x + slotSize.width / 2,
-                                     slotOrigin.y + slotSize.height / 2);
-    
     // Do animation
     [UIView animateWithDuration:0.5 animations:^{
         
-        
         // Place into slot
-        imageView.center = slotCenter;
-        imageView.transform = transform;
-        
-        // After setting the slot number (which puts it into the slot's view),
-        // move out to the animation superview (foreground)
-//        [[self superviewForScrapAnimation] addSubview:self.view];
+        imageView.frame = rect;
         
     } completion:^(BOOL finished) {
-        
-        // Re-setup the view
-//        [self setupView];
-        NSLog(@"fillRect completed");
     }];
 }
 
@@ -291,20 +260,6 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 }
 
 
-- (CGRect)rectFromSlot:(NSDictionary *)slotDict
-{
-    if ([slotDict isKindOfClass:[NSString class]]) {
-        return CGRectFromString((NSString *)slotDict);
-    } else {
-        NSDictionary *originDict = [slotDict valueForKeyPath:@"rect.origin"];
-        NSDictionary *sizeDict = [slotDict valueForKeyPath:@"rect.size"];
-        return CGRectMake(self.view.frame.size.width  * [[originDict valueForKey:@"x"] floatValue],
-                          self.view.frame.size.height * [[originDict valueForKey:@"y"] floatValue],
-                          self.view.frame.size.width  * [[sizeDict valueForKey:@"width"] floatValue],
-                          self.view.frame.size.height * [[sizeDict valueForKey:@"height"] floatValue]);
-    }
-}
-
 - (float)calculateScale:(UIImage *)image
 {
     float ratio = 1;
@@ -318,22 +273,77 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 
 #pragma mark - Grids
 
-- (NSDictionary *)gridWithNumSlots:(NSInteger)numSlots
+- (NSArray *)generateSlots:(NSInteger)numSlots
 {
-    NSArray *grids = [self randomGrid];
-    int gridIndex = [self randomNumberInRangeMin:0 max:grids.count-1];
-    return grids[gridIndex];
+    NSArray *slots = @[ [NSValue valueWithCGRect:self.view.bounds] ];
+    while (slots.count < numSlots) {
+        slots = [self growSlots:slots];
+    }
+    return slots;
+}
+- (NSArray *)growSlots:(NSArray *)_slots
+{
+    NSMutableArray *slots = [NSMutableArray arrayWithArray:_slots];
+    
+    // Find biggest slot
+    NSInteger maxIndex = -1;
+    CGFloat   maxDim = 0;
+    BOOL      maxIsWidth;
+    for (NSInteger i=0; i<slots.count; i++) {
+        CGRect rect = [[slots objectAtIndex:i] CGRectValue];
+        if (rect.size.width > maxDim) {
+            maxIndex = i;
+            maxDim = rect.size.width;
+            maxIsWidth = YES;
+        }
+        if (rect.size.height > maxDim) {
+            maxIndex = i;
+            maxDim = rect.size.height;
+            maxIsWidth = NO;
+        }
+    }
+    
+    assert(maxIndex != -1);
+    
+
+    CGRect oldR = [[slots objectAtIndex:maxIndex] CGRectValue];
+    CGRect newR = oldR;
+    if (maxIsWidth) {
+        CGFloat modWidth = randomSplit(oldR.size.width, oldR.size.width / 4, 3);
+        newR.size.width = oldR.size.width - modWidth;
+        oldR.size.width = modWidth;
+        newR.origin.x += modWidth;
+    }
+    else {
+        CGFloat modHeight = randomSplit(oldR.size.height, oldR.size.height / 4, 3);
+        newR.size.height = oldR.size.height - modHeight;
+        oldR.size.height = modHeight;
+        newR.origin.y += modHeight;
+    }
+    [slots replaceObjectAtIndex:maxIndex withObject:[NSValue valueWithCGRect:oldR]];
+    [slots addObject:[NSValue valueWithCGRect:newR]];
+
+    return slots;
 }
 
-- (NSArray *)randomGrid
+
+static CGFloat randomSpread(NSUInteger randomFactor)
 {
-    int count = self.imageViews.count;
-    NSString *filename = [NSString stringWithFormat:@"Grids%d%@", count, @".plist"];
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:
-                          [[NSBundle mainBundle] pathForResource:filename
-                                                          ofType:nil]];
-    NSArray *grids = [dict valueForKey:@"grids"];
-    return grids;
+    if (randomFactor == 0)
+        return 0.5;
+    CGFloat ret = 0;
+    const NSUInteger RANDOM_RESOLUTION = 1024;
+    for (NSUInteger i=0; i<randomFactor; i++)
+        ret += (CGFloat)(arc4random() % RANDOM_RESOLUTION) / RANDOM_RESOLUTION;
+    ret /= randomFactor;
+    return ret;
+}
+static CGFloat randomSplit(CGFloat x, CGFloat min, NSUInteger randomFactor)
+{
+    CGFloat range = x - (min * 2);
+    if (range <= 0)
+        return x / 2;
+    return min + range * randomSpread(randomFactor);
 }
 
 
