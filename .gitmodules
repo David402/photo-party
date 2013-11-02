@@ -1,0 +1,3 @@
+[submodule "CBWebImage"]
+	path = CBWebImage
+	url = git@github.com:cardinalblue/CBWebImage.git
