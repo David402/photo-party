@@ -27,6 +27,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 @property (nonatomic, strong) TRVSEventSource* eventSource;
 @property (nonatomic, copy) NSString *uploadedImageUrl;
 
+@property (nonatomic, retain) NSMutableArray *imageViews;
 
 @end
 
@@ -46,6 +47,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.images = [NSMutableArray array];
+        self.imageViews = [NSMutableArray array];
     }
     return self;
 }
@@ -110,8 +112,10 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     float y = self.view.frame.size.height / 2;
     imageView.frame = frame;
     imageView.center = CGPointMake(x, y);
-    imageView.transform = [self randomRotationBetweenDegrees:30];
+//    imageView.transform = [self randomRotationBetweenDegrees:30];
     [self.view addSubview:[self updateShadow:imageView]];
+    
+    [self.imageViews addObject:imageView];
 }
 
 - (void)addImageWithUrl:(NSString *)urlString
@@ -132,8 +136,6 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
                    if (!image)
                        return;
                    
-                   // Adjsut all image view layout here
-                   
                    float x = thisView.frame.size.width / 2;
                    float y = thisView.frame.size.height / 2;
                    float scale = [self calculateScale:image];
@@ -145,8 +147,13 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
                         x + [self randomNegPos] * [self randomNumberInRangeMin:10 Max:200],
                         y + [self randomNegPos] * [self randomNumberInRangeMin:10 Max:200]);
                    
-                   weakImageView.transform = [self randomRotationBetweenDegrees:30];
+//                   weakImageView.transform = [self randomRotationBetweenDegrees:30];
                    [self.view addSubview:[self updateShadow:weakImageView]];
+                   
+                   [self.imageViews addObject:weakImageView];
+                   
+                   // Adjsut all image view layout here
+                   [self updateView];
     }];
 }
 
@@ -156,19 +163,11 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 - (void)eventSourceDidOpen:(TRVSEventSource *)eventSource
 {
     NSLog(@"opened");
-    dispatch_async(dispatch_get_main_queue(), ^{
-//        self.button.enabled = YES;
-//        [self.button setTitle:@"Stop" forState:UIControlStateNormal];
-    });
 }
 
 - (void)eventSourceDidClose:(TRVSEventSource *)eventSource
 {
     NSLog(@"closed");
-    dispatch_async(dispatch_get_main_queue(), ^{
-//        self.button.enabled = YES;
-//        [self.button setTitle:@"Start" forState:UIControlStateNormal];
-    });
 }
 
 - (void)eventSource:(TRVSEventSource *)eventSource didReceiveEvent:(TRVSServerSentEvent *)event
@@ -222,6 +221,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 
 - (double)randomNumberInRangeMin:(NSInteger)min Max:(NSInteger)max
 {
+    if (min == max) return min;
     //create the random number.
     return (rand() % (max - min)) + min;
 }
@@ -229,6 +229,87 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 - (NSInteger)randomNegPos
 {
     return ((rand() & 0x1) == 1) ? 1 : -1;
+}
+
+- (void)updateView
+{
+    NSArray *grids = [self randomGrid];
+    int gridIndex = [self randomNumberInRangeMin:0 Max:grids.count-1];
+    NSDictionary *gridDict = grids[gridIndex];
+    NSMutableArray *slots = [NSMutableArray arrayWithArray:[gridDict valueForKey:@"slots"]];
+    for (UIImageView *imageView in self.imageViews) {
+        int slotIndex = [self randomNumberInRangeMin:0 Max:slots.count-1];
+        CGRect slotRect = [self rectFromSlot:slots[slotIndex]];
+        [self fillRect:slotRect withImageView:imageView];
+        [slots removeObjectAtIndex:slotIndex];
+    }
+}
+
+- (void)fillRect:(CGRect)rect withImageView:(UIImageView *)imageView
+{
+    CGFloat sizeFudge = 7;
+//    CGSize slotSize = CGSizeMake(rect.size.width  * self.view.frame.size.width,
+//                                 rect.size.height * self.view.frame.size.height);
+    CGSize slotSize = rect.size;
+    CGFloat scaling = 1;    // Default
+    CGSize imageViewSize = imageView.frame.size;
+    if (MIN(imageViewSize.width, imageViewSize.height) >= 1) {
+        scaling = MAX((rect.size.width  + sizeFudge) / imageViewSize.width,
+                      (rect.size.height + sizeFudge) / imageViewSize.height);
+//        scaling = MIN(scaling, MAX_SCRAP_SCALING);
+    }
+    CGAffineTransform transform = CGAffineTransformScale(imageView.transform, scaling, scaling);
+    
+    // Figure out position (centered)
+//    CGPoint slotOrigin = CGPointMake(rect.origin.x * self.view.frame.size.width,
+//                                     rect.origin.y * self.view.frame.size.height);
+    CGPoint slotOrigin = rect.origin;
+    CGPoint slotCenter = CGPointMake(slotOrigin.x + slotSize.width / 2,
+                                     slotOrigin.y + slotSize.height / 2);
+    
+    // Do animation
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        
+        // Place into slot
+        imageView.center = slotCenter;
+        imageView.transform = transform;
+        
+        // After setting the slot number (which puts it into the slot's view),
+        // move out to the animation superview (foreground)
+//        [[self superviewForScrapAnimation] addSubview:self.view];
+        
+    } completion:^(BOOL finished) {
+        
+        // Re-setup the view
+//        [self setupView];
+        NSLog(@"fillRect completed");
+    }];
+}
+
+- (CGRect)rectFromSlot:(NSDictionary *)slotDict
+{
+    if ([slotDict isKindOfClass:[NSString class]]) {
+        return CGRectFromString((NSString *)slotDict);
+    } else {
+        NSDictionary *originDict = [slotDict valueForKeyPath:@"rect.origin"];
+        NSDictionary *sizeDict = [slotDict valueForKeyPath:@"rect.size"];
+        return CGRectMake(self.view.frame.size.width * [[originDict valueForKey:@"x"] floatValue],
+                          self.view.frame.size.height * [[originDict valueForKey:@"y"] floatValue],
+                          self.view.frame.size.width * [[sizeDict valueForKey:@"width"] floatValue],
+                          self.view.frame.size.height * [[sizeDict valueForKey:@"height"] floatValue]);
+    }
+}
+
+- (NSArray *)randomGrid
+{
+    int count = self.imageViews.count;
+    NSString *filename = [NSString stringWithFormat:@"Grids%d%@", count, @".plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:
+                          [[NSBundle mainBundle] pathForResource:filename
+                                                          ofType:nil]];
+    NSArray *grids = [dict valueForKey:@"grids"];
+    return grids;
 }
 
 - (UIImageView *)updateShadow:(UIImageView *)imageView

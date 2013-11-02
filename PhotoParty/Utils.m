@@ -11,6 +11,27 @@
 #include <CommonCrypto/CommonDigest.h>
 #include <CommonCrypto/CommonHMAC.h>
 
+// =============================================================================
+
+id SAFE_CAST(Class klass, id obj) {
+    return [obj isKindOfClass:klass]? obj : nil;
+}
+id SAFE_CALL(id obj, SEL selector) {
+    if ([obj respondsToSelector:selector])
+        return [obj performSelector:selector];
+    return nil;
+}
+id SAFE_PROTOCOL(id obj, Protocol *protocol) {
+    return [obj conformsToProtocol:protocol]? obj : nil;
+}
+float SAFE_FLOAT(id obj) {
+    if ([obj respondsToSelector:@selector(floatValue)])
+        return [obj floatValue];
+    return 0;
+}
+
+// =============================================================================
+
 @interface NSData (HMAC_SHA1)
 - (NSData*)HMAC_SHA1_with_secret:(NSString*)secret;
 @end

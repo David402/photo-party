@@ -39,6 +39,11 @@
 		D7CD451818252083009B2F19 /* UIImageView+CBWebImageAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CD450C18252083009B2F19 /* UIImageView+CBWebImageAnimation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D7CD451B18253948009B2F19 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CD451A18253948009B2F19 /* Utils.m */; };
 		D7CD451D18253B87009B2F19 /* credentials.txt in Resources */ = {isa = PBXBuildFile; fileRef = D7CD451C18253B87009B2F19 /* credentials.txt */; };
+		D7CD452818255D2E009B2F19 /* Grids2.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CD452118255D2E009B2F19 /* Grids2.plist */; };
+		D7CD452918255D2E009B2F19 /* Grids3.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CD452218255D2E009B2F19 /* Grids3.plist */; };
+		D7CD452A18255D2E009B2F19 /* Grids4.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CD452318255D2E009B2F19 /* Grids4.plist */; };
+		D7CD452B18255D2E009B2F19 /* Grids5.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CD452418255D2E009B2F19 /* Grids5.plist */; };
+		D7CD452C18255D2E009B2F19 /* Grids6.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CD452518255D2E009B2F19 /* Grids6.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +116,11 @@
 		D7CD451918253948009B2F19 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		D7CD451A18253948009B2F19 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		D7CD451C18253B87009B2F19 /* credentials.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = credentials.txt; sourceTree = "<group>"; };
+		D7CD452118255D2E009B2F19 /* Grids2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Grids2.plist; sourceTree = "<group>"; };
+		D7CD452218255D2E009B2F19 /* Grids3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Grids3.plist; sourceTree = "<group>"; };
+		D7CD452318255D2E009B2F19 /* Grids4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Grids4.plist; sourceTree = "<group>"; };
+		D7CD452418255D2E009B2F19 /* Grids5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Grids5.plist; sourceTree = "<group>"; };
+		D7CD452518255D2E009B2F19 /* Grids6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Grids6.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +180,11 @@
 		D7B3C98D1824F3A900EB253A /* PhotoParty */ = {
 			isa = PBXGroup;
 			children = (
+				D7CD452118255D2E009B2F19 /* Grids2.plist */,
+				D7CD452218255D2E009B2F19 /* Grids3.plist */,
+				D7CD452318255D2E009B2F19 /* Grids4.plist */,
+				D7CD452418255D2E009B2F19 /* Grids5.plist */,
+				D7CD452518255D2E009B2F19 /* Grids6.plist */,
 				D7CD451C18253B87009B2F19 /* credentials.txt */,
 				D7CD44EF18252083009B2F19 /* CBWebImage */,
 				D7CD451E182551B0009B2F19 /* TRVEvent */,
@@ -358,10 +373,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7CD452918255D2E009B2F19 /* Grids3.plist in Resources */,
 				D7B3C9A01824F3A900EB253A /* Images.xcassets in Resources */,
+				D7CD452818255D2E009B2F19 /* Grids2.plist in Resources */,
+				D7CD452C18255D2E009B2F19 /* Grids6.plist in Resources */,
 				D7B3C9921824F3A900EB253A /* InfoPlist.strings in Resources */,
+				D7CD452B18255D2E009B2F19 /* Grids5.plist in Resources */,
 				D7B3C99B1824F3A900EB253A /* Main.storyboard in Resources */,
 				D7CD451D18253B87009B2F19 /* credentials.txt in Resources */,
+				D7CD452A18255D2E009B2F19 /* Grids4.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
