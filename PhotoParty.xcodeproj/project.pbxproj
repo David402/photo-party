@@ -172,11 +172,7 @@
 			children = (
 				D7CD451C18253B87009B2F19 /* credentials.txt */,
 				D7CD44EF18252083009B2F19 /* CBWebImage */,
-				D7CD44E818251E4F009B2F19 /* TRVSEventSource.h */,
-				D7CD44E918251E4F009B2F19 /* TRVSEventSource.m */,
-				D7CD44EA18251E4F009B2F19 /* TRVSEventSourceDelegate.h */,
-				D7CD44EB18251E4F009B2F19 /* TRVSServerSentEvent.h */,
-				D7CD44EC18251E4F009B2F19 /* TRVSServerSentEvent.m */,
+				D7CD451E182551B0009B2F19 /* TRVEvent */,
 				D7B3C9C51825078100EB253A /* Controllers */,
 				D7B3C9961824F3A900EB253A /* AppDelegate.h */,
 				D7B3C9971824F3A900EB253A /* AppDelegate.m */,
@@ -272,6 +268,18 @@
 				D7CD44F418252083009B2F19 /* UIScreen+CBWebImageAdditions.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		D7CD451E182551B0009B2F19 /* TRVEvent */ = {
+			isa = PBXGroup;
+			children = (
+				D7CD44E818251E4F009B2F19 /* TRVSEventSource.h */,
+				D7CD44E918251E4F009B2F19 /* TRVSEventSource.m */,
+				D7CD44EA18251E4F009B2F19 /* TRVSEventSourceDelegate.h */,
+				D7CD44EB18251E4F009B2F19 /* TRVSServerSentEvent.h */,
+				D7CD44EC18251E4F009B2F19 /* TRVSServerSentEvent.m */,
+			);
+			name = TRVEvent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

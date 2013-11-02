@@ -110,6 +110,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     float y = self.view.frame.size.height / 2;
     imageView.frame = frame;
     imageView.center = CGPointMake(x, y);
+    imageView.transform = [self randomRotationBetweenDegrees:30];
     [self.view addSubview:[self updateShadow:imageView]];
 }
 
@@ -144,6 +145,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
                         x + [self randomNegPos] * [self randomNumberInRangeMin:10 Max:200],
                         y + [self randomNegPos] * [self randomNumberInRangeMin:10 Max:200]);
                    
+                   weakImageView.transform = [self randomRotationBetweenDegrees:30];
                    [self.view addSubview:[self updateShadow:weakImageView]];
     }];
 }
@@ -215,6 +217,9 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     self.eventSource = nil;
 }
 
+
+# pragma mark - Utils
+
 - (double)randomNumberInRangeMin:(NSInteger)min Max:(NSInteger)max
 {
     //create the random number.
@@ -250,4 +255,13 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     }
     return ratio;
 }
+
+- (CGAffineTransform)randomRotationBetweenDegrees:(int)degrees
+{
+    int rotationDeg = (arc4random() % degrees) - (degrees / 2);
+    float rotationRad = (rotationDeg / 180.0f) * M_PI;
+    return CGAffineTransformMakeRotation(rotationRad);
+    
+}
+
 @end
