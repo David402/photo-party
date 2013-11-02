@@ -248,21 +248,16 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 - (void)fillRect:(CGRect)rect withImageView:(UIImageView *)imageView
 {
     CGFloat sizeFudge = 7;
-//    CGSize slotSize = CGSizeMake(rect.size.width  * self.view.frame.size.width,
-//                                 rect.size.height * self.view.frame.size.height);
     CGSize slotSize = rect.size;
     CGFloat scaling = 1;    // Default
     CGSize imageViewSize = imageView.frame.size;
     if (MIN(imageViewSize.width, imageViewSize.height) >= 1) {
         scaling = MAX((rect.size.width  + sizeFudge) / imageViewSize.width,
                       (rect.size.height + sizeFudge) / imageViewSize.height);
-//        scaling = MIN(scaling, MAX_SCRAP_SCALING);
     }
     CGAffineTransform transform = CGAffineTransformScale(imageView.transform, scaling, scaling);
     
     // Figure out position (centered)
-//    CGPoint slotOrigin = CGPointMake(rect.origin.x * self.view.frame.size.width,
-//                                     rect.origin.y * self.view.frame.size.height);
     CGPoint slotOrigin = rect.origin;
     CGPoint slotCenter = CGPointMake(slotOrigin.x + slotSize.width / 2,
                                      slotOrigin.y + slotSize.height / 2);
@@ -270,14 +265,9 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     // Do animation
     [UIView animateWithDuration:0.5 animations:^{
         
-        
         // Place into slot
         imageView.center = slotCenter;
         imageView.transform = transform;
-        
-        // After setting the slot number (which puts it into the slot's view),
-        // move out to the animation superview (foreground)
-//        [[self superviewForScrapAnimation] addSubview:self.view];
         
     } completion:^(BOOL finished) {
         
