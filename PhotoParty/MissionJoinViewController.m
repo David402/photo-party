@@ -16,6 +16,7 @@
 >
 @property (weak, nonatomic) IBOutlet UITextField *actionCodeTextField;
 @property (nonatomic, retain) UIImage *capturedImage;
+@property (weak, nonatomic) IBOutlet UIButton *actionButton;
 @end
 
 @implementation MissionJoinViewController
@@ -35,6 +36,12 @@
 	// Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.actionCodeTextField becomeFirstResponder];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -51,6 +58,7 @@
     pickerController.delegate = self;
     [self presentViewController:pickerController animated:YES completion:nil];
 }
+
 
 # pragma mark - UIView delegate
 
@@ -77,6 +85,25 @@
     // Dismiss Camera
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+# pragma mark - Actions
+
+- (IBAction)actionCodeDidChange:(id)sender
+{
+    if (![self.actionCodeTextField.text isEqualToString:@""]) {
+        self.actionButton.hidden = NO;
+        self.actionButton.enabled = YES;
+    }
+}
+- (IBAction)actionCodeChanged:(id)sender
+{
+    if (![self.actionCodeTextField.text isEqualToString:@""]) {
+        self.actionButton.hidden = NO;
+        self.actionButton.enabled = YES;
+    }
+}
+
 
 #pragma mark - Storyboard control
 

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *actionCodeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *actionNumberTextField;
 @property (nonatomic, retain) UIImage *capturedImage;
+@property (weak, nonatomic) IBOutlet UIButton *actionButton;
 @end
 
 @implementation MissionCreateViewController
@@ -34,6 +35,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.actionCodeTextField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,6 +92,45 @@
     
     // Dismiss Camera
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)actionCodeTextDidChange:(id)sender
+{
+    if ([self validateTextFields]) {
+        self.actionButton.hidden = NO;
+        self.actionButton.enabled = YES;
+    }
+}
+- (IBAction)actionCodeChanged:(id)sender
+{
+    if ([self validateTextFields]) {
+        self.actionButton.hidden = NO;
+        self.actionButton.enabled = YES;
+    }
+}
+
+- (IBAction)actionNumberTextDidChange:(id)sender
+{
+    if ([self validateTextFields]) {
+        self.actionButton.hidden = NO;
+        self.actionButton.enabled = YES;
+    }
+}
+- (IBAction)actionNumberChanged:(id)sender
+{
+    if ([self validateTextFields]) {
+        self.actionButton.hidden = NO;
+        self.actionButton.enabled = YES;
+    }
+}
+
+- (BOOL)validateTextFields
+{
+    if ([self.actionNumberTextField.text isEqual:@""] ||
+        [self.actionCodeTextField.text isEqual:@""]) {
+        return NO;
+    }
+    return YES;
 }
 
 #pragma mark - Storyboard control

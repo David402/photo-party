@@ -60,33 +60,41 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYW-ZP-CLP">
-                                <rect key="frame" x="88" y="209" width="144" height="21"/>
+                                <rect key="frame" x="88" y="78" width="144" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEv-BL-H2Q">
-                                <rect key="frame" x="88" y="299" width="144" height="21"/>
+                                <rect key="frame" x="88" y="168" width="144" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ze0-g4-hz7">
-                                <rect key="frame" x="88" y="238" width="144" height="30"/>
+                                <rect key="frame" x="88" y="107" width="144" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="actionCodeChanged:" destination="eLG-H4-qVg" eventType="editingChanged" id="Dnh-FG-bbl"/>
+                                    <action selector="actionCodeTextDidChange:" destination="eLG-H4-qVg" eventType="editingDidEnd" id="k5Z-5V-he6"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EiJ-st-25v">
-                                <rect key="frame" x="88" y="328" width="144" height="30"/>
+                                <rect key="frame" x="88" y="197" width="144" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="actionNumberChanged:" destination="eLG-H4-qVg" eventType="editingChanged" id="hyA-72-IAu"/>
+                                    <action selector="actionNumberTextDidChange:" destination="eLG-H4-qVg" eventType="editingDidEnd" id="VeH-rP-BrY"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uqp-Wy-Yl0">
-                                <rect key="frame" x="88" y="420" width="144" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uqp-Wy-Yl0">
+                                <rect key="frame" x="88" y="248" width="144" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Start Mission">
@@ -101,6 +109,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cIk-0T-yCL"/>
                     <connections>
+                        <outlet property="actionButton" destination="Uqp-Wy-Yl0" id="avY-Ef-g4J"/>
                         <outlet property="actionCodeTextField" destination="Ze0-g4-hz7" id="rhk-v1-IBd"/>
                         <outlet property="actionNumberTextField" destination="EiJ-st-25v" id="bO9-kK-KWA"/>
                         <segue destination="JXt-vM-gun" kind="push" identifier="CameraToCollageSegue" id="5f1-8W-SG6"/>
@@ -142,20 +151,25 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7im-wG-tYX">
-                                <rect key="frame" x="88" y="254" width="144" height="21"/>
+                                <rect key="frame" x="88" y="77" width="144" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6aw-Zm-FfF">
-                                <rect key="frame" x="88" y="283" width="144" height="30"/>
+                                <rect key="frame" x="88" y="106" width="144" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="actionCodeChanged:" destination="G4z-ab-XBd" eventType="editingChanged" id="pen-d4-lmi"/>
+                                    <action selector="actionCodeDidChange:" destination="G4z-ab-XBd" eventType="editingDidEnd" id="WT3-4o-eTK"/>
+                                    <outlet property="delegate" destination="G4z-ab-XBd" id="Tkv-Fc-6Zx"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vx1-Eu-Gz2">
-                                <rect key="frame" x="88" y="362" width="144" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vx1-Eu-Gz2">
+                                <rect key="frame" x="88" y="152" width="144" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Join">
@@ -170,6 +184,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1VH-zL-lgI"/>
                     <connections>
+                        <outlet property="actionButton" destination="Vx1-Eu-Gz2" id="Oj6-fu-gMo"/>
                         <outlet property="actionCodeTextField" destination="6aw-Zm-FfF" id="oWS-3A-gd7"/>
                         <segue destination="JXt-vM-gun" kind="push" identifier="CameraToCollageSegue" id="ypw-6S-2gG"/>
                     </connections>
@@ -203,6 +218,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ypw-6S-2gG"/>
+        <segue reference="5f1-8W-SG6"/>
     </inferredMetricsTieBreakers>
 </document>
