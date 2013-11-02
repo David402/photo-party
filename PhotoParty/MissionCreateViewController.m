@@ -11,7 +11,7 @@
 
 @interface MissionCreateViewController ()
 <
-    UINavigationBarDelegate,
+    UINavigationControllerDelegate,
     UIImagePickerControllerDelegate
 >
 @property (weak, nonatomic) IBOutlet UITextField *actionCodeTextField;
@@ -47,6 +47,10 @@
 
 - (IBAction)createButtonPressed:(id)sender
 {
+    if ([self.actionNumberTextField.text isEqual:@""] ||
+        [self.actionCodeTextField.text isEqual:@""]) {
+        return;
+    }
     UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
     pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
     pickerController.delegate = self;

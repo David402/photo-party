@@ -161,11 +161,18 @@
                                 <state key="normal" title="Join">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="joinButtionPressed:" destination="G4z-ab-XBd" eventType="touchUpInside" id="TKT-g5-1E5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="1VH-zL-lgI"/>
+                    <connections>
+                        <outlet property="actionCodeTextField" destination="6aw-Zm-FfF" id="oWS-3A-gd7"/>
+                        <segue destination="JXt-vM-gun" kind="push" identifier="CameraToCollageSegue" id="ypw-6S-2gG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4h-CR-mxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,4 +202,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="ypw-6S-2gG"/>
+    </inferredMetricsTieBreakers>
 </document>

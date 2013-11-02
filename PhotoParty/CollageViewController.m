@@ -52,7 +52,7 @@
     // Arrange image to collage
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     float ratio = image.size.width / image.size.height;
-    imageView.frame = CGRectMake(100, 100, 200, 200*ratio);
+    imageView.frame = CGRectMake(100, 100, 200*ratio, 200);
     [self.view addSubview:imageView];
 }
 @end
