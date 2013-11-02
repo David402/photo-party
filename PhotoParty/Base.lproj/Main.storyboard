@@ -126,7 +126,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Pih-mO-qt0"/>
+                    <navigationItem key="navigationItem" id="Pih-mO-qt0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="mqW-S2-pSc">
+                            <connections>
+                                <action selector="cameraButtonPressed:" destination="JXt-vM-gun" id="gbF-Yx-R3A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbQ-cn-q3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

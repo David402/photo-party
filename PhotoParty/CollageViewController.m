@@ -23,6 +23,8 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 
 @interface CollageViewController ()
 <
+    UINavigationControllerDelegate,
+    UIImagePickerControllerDelegate,
     TRVSEventSourceDelegate
 >
 @property (nonatomic, strong) TRVSEventSource* eventSource;
@@ -151,6 +153,26 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 }
 
 
+- (IBAction)cameraButtonPressed:(id)sender
+{
+    
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+    pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    pickerController.delegate = self;
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+
+# pragma mark - UIView
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    // Do animation
+    [UIView animateWithDuration:0.5 animations:^{
+        self.navigationController.navigationBarHidden = !self.navigationController.navigationBarHidden;
+        [[UIApplication sharedApplication] setStatusBarHidden:![[UIApplication sharedApplication] isStatusBarHidden]];
+    }];
+}
+
 # pragma mark - TRVEventSource Delegate
 
 - (void)eventSourceDidOpen:(TRVSEventSource *)eventSource
@@ -235,6 +257,22 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     } completion:^(BOOL finished) {
     }];
 }
+
+# pragma mark - UIImagePickerController delegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // Get the image out
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if (!image)
+        return;
+    
+    [self addImage:image];
+    
+    // Dismiss Camera
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 # pragma mark - Utils
 
