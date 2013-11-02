@@ -46,6 +46,9 @@
 {
     [super viewWillAppear:animated];
     [self.actionCodeTextField becomeFirstResponder];
+    
+    [[self.navigationController.navigationBar viewWithTag:100] setHidden:YES];
+    self.title = @"New Mission";
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,9 +79,7 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	// Dismiss keyboard
-    [self.actionCodeTextField resignFirstResponder];
-    [self.actionNumberTextField resignFirstResponder];
+	[self dismissKeyboard];
 }
 
 
@@ -152,12 +153,21 @@
     return YES;
 }
 
+- (void)dismissKeyboard
+{
+    // Dismiss keyboard
+    [self.actionCodeTextField resignFirstResponder];
+    [self.actionNumberTextField resignFirstResponder];
+}
+
 #pragma mark - Storyboard control
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"CameraToCollageSegue"])
     {
+        [self dismissKeyboard];
+        
         CollageViewController *vc = segue.destinationViewController;
         [vc addImage:self.capturedImage];
     }

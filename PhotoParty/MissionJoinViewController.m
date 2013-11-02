@@ -46,6 +46,9 @@
 {
     [super viewWillAppear:animated];
     [self.actionCodeTextField becomeFirstResponder];
+    
+    [[self.navigationController.navigationBar viewWithTag:100] setHidden:YES];
+    self.title = @"Join Mission";
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,8 +73,7 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	// Dismiss keyboard
-    [self.actionCodeTextField resignFirstResponder];
+	[self dismissKeyboard];
 }
 
 
@@ -116,6 +118,14 @@
     }
 }
 
+# pragma mark - Utils
+
+- (void)dismissKeyboard
+{
+    // Dismiss keyboard
+    [self.actionCodeTextField resignFirstResponder];
+}
+
 
 #pragma mark - Storyboard control
 
@@ -123,6 +133,8 @@
 {
     if ([segue.identifier isEqualToString:@"CameraToCollageSegue"])
     {
+        [self dismissKeyboard];
+        
         CollageViewController *vc = segue.destinationViewController;
         [vc addImage:self.capturedImage];
     }

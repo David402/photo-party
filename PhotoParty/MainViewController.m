@@ -37,6 +37,7 @@ UITextField *actionNumberTextField;
     CGPoint center = view.center;
     center.x = self.view.frame.size.width / 2.0f;
     view.center = center;
+    view.tag = 100;
     
     [self.navigationController.navigationBar addSubview:view];
 }
