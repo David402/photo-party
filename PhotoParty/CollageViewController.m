@@ -253,6 +253,9 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     layer.shadowOpacity = 0.5;
     layer.shadowOffset = CGSizeMake(5, 5);
     
+    layer.borderColor = [UIColor whiteColor].CGColor;
+    layer.borderWidth = 5;
+    
     // Setup the shadowPath
     layer.shadowPath = [UIBezierPath bezierPathWithRect:imageView.bounds].CGPath;
     
