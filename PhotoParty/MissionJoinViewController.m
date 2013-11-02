@@ -78,27 +78,7 @@
     // Get the image out
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     self.capturedImage = image;
-    
-    // Async Upload image
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *urlString = [Utils upload_to_s3:image];
         
-        NSMutableURLRequest* req = [[NSMutableURLRequest alloc] init];
-        [req setURL:[NSURL URLWithString:kTransmitterURL]];
-        [req setHTTPMethod:@"POST"];
-        [req setHTTPBody:[urlString dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        NSURLResponse* resp = nil;
-        NSError* err = nil;
-        NSData* respData = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&err];
-        if (err) {
-            NSLog(@"[Join Mission] upload image %@", err);
-        } else {
-            NSLog(@"[Join Mission] upload image %@", [NSString stringWithUTF8String:(char*)[respData bytes]]);
-        }
-        
-    });
-    
     // Show collage
     [self performSegueWithIdentifier:@"CameraToCollageSegue" sender:self];
     

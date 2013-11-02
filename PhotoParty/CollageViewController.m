@@ -12,6 +12,7 @@
 
 #import "TRVSEventSource.h"
 #import "CBWebImage.h"
+#import "Utils.h"
 
 #define HOST @"http://geochat-awaw.rhcloud.com"
 #define IMAGE_VIEW_HEIGHT 200
@@ -24,6 +25,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     TRVSEventSourceDelegate
 >
 @property (nonatomic, strong) TRVSEventSource* eventSource;
+@property (nonatomic, copy) NSString *uploadedImageUrl;
 
 
 @end
@@ -72,6 +74,30 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 
 - (void)addImage:(UIImage *)image
 {
+    // Async Upload image
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *urlString = [Utils upload_to_s3:image];
+        if (!urlString) {
+            NSLog(@"upload failed, url: %@", urlString);
+            return ;
+        }
+        
+        self.uploadedImageUrl = urlString;
+        NSMutableURLRequest* req = [[NSMutableURLRequest alloc] init];
+        [req setURL:[NSURL URLWithString:kTransmitterURL]];
+        [req setHTTPMethod:@"POST"];
+        [req setHTTPBody:[urlString dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        NSURLResponse* resp = nil;
+        NSError* err = nil;
+        NSData* respData = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&err];
+        if (err) {
+            NSLog(@"[Create Mission] upload image %@", err);
+        } else {
+            NSLog(@"[Create Mission] upload image %@", [NSString stringWithUTF8String:(char*)[respData bytes]]);
+        }
+    });
+    
     // Add image to collection
     [self.images addObject:image];
     
@@ -91,6 +117,10 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 {
     NSLog(@"addImageWithUrl url: %@", urlString);
     if ([urlString isEqualToString:@""])
+        return;
+    
+    // Skipped self-uploaded image
+    if ([self.uploadedImageUrl isEqualToString:urlString])
         return;
     
     UIImageView *imageView = [[UIImageView alloc] init];
