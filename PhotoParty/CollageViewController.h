@@ -14,6 +14,7 @@ extern NSString* const kTransmitterURL;
 @interface CollageViewController : UIViewController
 
 @property (nonatomic, retain) NSMutableArray *images;
+@property (nonatomic, assign) NSInteger totalImageSize;
 
 - (void)addImage:(UIImage *)image;
 

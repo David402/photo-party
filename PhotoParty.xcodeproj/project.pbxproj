@@ -53,6 +53,7 @@
 		D7CD4549182580A5009B2F19 /* im_title_code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CD4543182580A5009B2F19 /* im_title_code@2x.png */; };
 		D7CD454A182580A5009B2F19 /* im_title_member.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CD4544182580A5009B2F19 /* im_title_member.png */; };
 		D7CD454B182580A5009B2F19 /* im_title_member@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CD4545182580A5009B2F19 /* im_title_member@2x.png */; };
+		D7CD454F1825C7E4009B2F19 /* MissionAccomplished.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CD454E1825C7E4009B2F19 /* MissionAccomplished.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		D7CD4543182580A5009B2F19 /* im_title_code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "im_title_code@2x.png"; sourceTree = "<group>"; };
 		D7CD4544182580A5009B2F19 /* im_title_member.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = im_title_member.png; sourceTree = "<group>"; };
 		D7CD4545182580A5009B2F19 /* im_title_member@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "im_title_member@2x.png"; sourceTree = "<group>"; };
+		D7CD454E1825C7E4009B2F19 /* MissionAccomplished.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MissionAccomplished.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +316,7 @@
 		D7CD452F18257C93009B2F19 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D7CD454E1825C7E4009B2F19 /* MissionAccomplished.png */,
 				D7CD453818257E50009B2F19 /* icon.png */,
 				D7CD453918257E50009B2F19 /* icon@2x.png */,
 				D7CD453A18257E50009B2F19 /* im_logo_nav.png */,
@@ -420,6 +423,7 @@
 				D7CD454B182580A5009B2F19 /* im_title_member@2x.png in Resources */,
 				D7CD453718257CA1009B2F19 /* btn_join@2x.png in Resources */,
 				D7CD453618257CA1009B2F19 /* btn_join.png in Resources */,
+				D7CD454F1825C7E4009B2F19 /* MissionAccomplished.png in Resources */,
 				D7CD454A182580A5009B2F19 /* im_title_member.png in Resources */,
 				D7CD453C18257E50009B2F19 /* icon.png in Resources */,
 				D7B3C99B1824F3A900EB253A /* Main.storyboard in Resources */,

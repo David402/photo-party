@@ -59,6 +59,9 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBarHidden animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:![[UIApplication sharedApplication] isStatusBarHidden] withAnimation:UIStatusBarAnimationFade];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -143,6 +146,9 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
                completionBlock:^(UIImage *image, NSError *error) {
                    if (!image)
                        return;
+                   
+                   // Add image to collection
+                   [self.images addObject:image];
 
                    // Insert imageView
                    [self.view addSubview:[self updateShadow:_imageView]];
@@ -196,7 +202,8 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 
     // Update image in UI thread
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self addImageWithUrl:urlString];
+        if (self.images.count < self.totalImageSize)
+            [self addImageWithUrl:urlString];
     });
 }
 
@@ -240,6 +247,12 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
         [self fillRect:slotRect withImageView:imageView];
         
         [slots removeObjectAtIndex:slotIndex];
+    }
+    
+    // Check added image size
+    if (self.totalImageSize == self.images.count) {
+        NSLog(@"---------------------");
+        [self handleMissionCompleted];
     }
 }
 
@@ -295,6 +308,30 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     layer.shadowPath = [UIBezierPath bezierPathWithRect:imageView.bounds].CGPath;
     
     return imageView;
+}
+
+- (void)handleMissionCompleted
+{
+    UIImage *image = [UIImage imageNamed:@"MissionAccomplished.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.alpha = 0;
+    float scale = 2 * self.view.frame.size.width / imageView.frame.size.width;
+    CGRect frame = imageView.frame;
+    frame.size.width *= scale;
+    frame.size.height *= scale;
+    imageView.frame = frame;
+    imageView.center = self.view.center;
+    [self.view addSubview:imageView];
+    
+    __weak UIImageView *weakView = imageView;
+    [UIView animateWithDuration:1.0 animations:^{
+        weakView.alpha = 1.0;
+        CGRect frame = imageView.frame;
+        frame.size.width *= 0.375;
+        frame.size.height *= 0.375;
+        weakView.frame = frame;
+        weakView.center = self.view.center;
+    }];
 }
 
 
