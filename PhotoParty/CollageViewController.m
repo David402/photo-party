@@ -353,7 +353,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 {
     UIImage *shareImage = image;
     
-    NSArray *activityItems = [NSArray arrayWithObjects:shareImage, nil];
+    NSArray *activityItems = [NSArray arrayWithObjects:shareImage, [NSString stringWithFormat:@"#%@", self.actionCode], nil];
     
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;

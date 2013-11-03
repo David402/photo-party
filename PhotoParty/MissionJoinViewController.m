@@ -136,6 +136,7 @@
         [self dismissKeyboard];
         
         CollageViewController *vc = segue.destinationViewController;
+        vc.actionCode = self.actionCodeTextField.text;
         [vc addImage:self.capturedImage];
     }
 }

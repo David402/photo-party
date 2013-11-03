@@ -170,6 +170,7 @@
         
         CollageViewController *vc = segue.destinationViewController;
         [vc addImage:self.capturedImage];
+        vc.actionCode = self.actionCodeTextField.text;
         vc.totalImageSize = [self.actionNumberTextField.text integerValue];
     }
 }
