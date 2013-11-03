@@ -58,7 +58,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.    
+	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -340,7 +340,27 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
         frame.size.height *= 0.375;
         weakView.frame = frame;
         weakView.center = self.view.center;
+    } completion:^(BOOL finished) {
+        UIGraphicsBeginImageContext(CGSizeMake(320,480));
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [self.view.layer renderInContext:context];
+        UIImage *screenShot = UIGraphicsGetImageFromCurrentImageContext(); UIGraphicsEndImageContext();
+        [self shareToFlickrWithImage:screenShot];
     }];
+}
+
+- (void)shareToFlickrWithImage:(UIImage *)image
+{
+    UIImage *shareImage = image;
+    
+    NSArray *activityItems = [NSArray arrayWithObjects:shareImage, nil];
+    
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+    activityViewController.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypePostToTwitter, UIActivityTypePostToFacebook, UIActivityTypeMessage, UIActivityTypeMail, UIActivityTypeAirDrop];
+    
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 
