@@ -260,7 +260,6 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     
     // Check added image size
     if (self.totalImageSize == self.images.count) {
-        NSLog(@"---------------------");
         [self handleMissionCompleted];
     }
 }
@@ -340,7 +339,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
         frame.size.height *= 0.375;
         weakView.frame = frame;
         weakView.center = self.view.center;
-        imageView.transform = [self rotationBetweenDegrees:-30];
+        imageView.transform = [self rotationBetweenDegrees:-18];
     } completion:^(BOOL finished) {
         UIGraphicsBeginImageContext(CGSizeMake(320,480));
         CGContextRef context = UIGraphicsGetCurrentContext();
