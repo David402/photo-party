@@ -358,7 +358,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     
-    activityViewController.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypePostToTwitter, UIActivityTypePostToFacebook, UIActivityTypeMessage, UIActivityTypeMail, UIActivityTypeAirDrop];
+    activityViewController.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeSaveToCameraRoll, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeMessage, UIActivityTypeAirDrop];
     
     [self presentViewController:activityViewController animated:YES completion:nil];
 }
