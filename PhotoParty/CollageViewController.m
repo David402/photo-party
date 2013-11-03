@@ -321,7 +321,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
 
 - (void)handleMissionCompleted
 {
-    UIImage *image = [UIImage imageNamed:@"MissionAccomplished.png"];
+    UIImage *image = [UIImage imageNamed:@"stamp-mission-accomplished_2.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.alpha = 0;
     float scale = 2 * self.view.frame.size.width / imageView.frame.size.width;
@@ -340,6 +340,7 @@ NSString* const kTransmitterURL = HOST @"/yahoo/transmitter";
         frame.size.height *= 0.375;
         weakView.frame = frame;
         weakView.center = self.view.center;
+        imageView.transform = [self rotationBetweenDegrees:-30];
     } completion:^(BOOL finished) {
         UIGraphicsBeginImageContext(CGSizeMake(320,480));
         CGContextRef context = UIGraphicsGetCurrentContext();
@@ -448,6 +449,19 @@ static CGFloat randomSplit(CGFloat x, CGFloat min, NSUInteger randomFactor)
     if (range <= 0)
         return x / 2;
     return min + range * randomSpread(randomFactor);
+}
+
+- (CGAffineTransform)randomRotationBetweenDegrees:(int)degrees
+{
+    int rotationDeg = (arc4random() % degrees) - (degrees / 2);
+    float rotationRad = (rotationDeg / 180.0f) * M_PI;
+    return CGAffineTransformMakeRotation(rotationRad);
+}
+
+- (CGAffineTransform)rotationBetweenDegrees:(int)degrees
+{
+    float rotationRad = (degrees / 180.0f) * M_PI;
+    return CGAffineTransformMakeRotation(rotationRad);
 }
 
 
